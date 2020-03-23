@@ -3,13 +3,13 @@
 ### Step 0/ First we check if the original data of the study is in place. If TRUE, then we create the new output dir
 mainDir <- getwd()
 rawData <- paste(mainDir, sep = "/", "Data")
-outputData <- paste(mainDir, sep = "/", "Ouput")
+outputDir <- paste(mainDir, sep = "/", "Output")
 
 
 if (!file.exists(rawData)){
     stop("The original data to perform the analysis is not present")
 } else {
-    dir.create(outputData, showWarnings = FALSE)
+    dir.create(outputDir, showWarnings = FALSE)
 }
 
 
@@ -94,6 +94,8 @@ colnames(mergedData) <- tolower(colnames(mergedData))
 
 outputData <- mergedData %>% group_by(subject,activity) %>% summarise_each(funs(mean))
 
+setwd(outputDir)
 
+write.table(outputData, file = "outputData.txt")
 
 ### End of Script :)
