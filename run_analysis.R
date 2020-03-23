@@ -95,4 +95,5 @@ colnames(mergedData) <- tolower(colnames(mergedData))
 outputData <- mergedData %>% group_by(subject,activity) %>% summarise_each(funs(mean))
 
 
+
 ### End of Script :)
