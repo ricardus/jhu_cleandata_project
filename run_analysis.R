@@ -96,6 +96,6 @@ outputData <- mergedData %>% group_by(subject,activity) %>% summarise_each(funs(
 
 setwd(outputDir)
 
-write.table(outputData, file = "outputData.txt")
+write.table(outputData, file = "outputData.txt", row.names = FALSE)
 
 ### End of Script :)
